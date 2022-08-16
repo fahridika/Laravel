@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/about', function () {
     return view('about', [
         'title' => 'about',
@@ -21,12 +22,39 @@ Route::get('/about', function () {
     ]);
 });
 Route::get('/blog', function () {
+    $blog_posts = [
+        [
+        'title' =>  'Judul Post Pertama',
+        'slug' => 'judul--post-pertama',
+        'author' => 'Anjas W',
+        'body' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+        Nisl tincidunt eget nullam non. Quis hendrer it dolor magna eget est lorem ipsum dolor sit.'
+        
+        ],
+        [
+            'title' =>  'Judul Post Kedua',
+            'slug' => 'judul-post-kedua',
+            'author' => 'Fany I P',
+            'body' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+            Nisl tincidunt eget nullam non. Quis hendrer it dolor magna eget est lorem ipsum dolor sit.'
+            
+        ]
+    
+        ];
+
     return view('posts', [
-        'title'=> 'blog'
+        'title'=> 'blog',
+        'posts' => $blog_posts
     ]);
 });
 Route::get('/', function () {
     return view('home',[
         'title' =>  'home'
     ]);
+});
+
+route::get('/posts/{slug}', function($slug){
+    return view ('posts');
 });

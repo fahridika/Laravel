@@ -1,5 +1,6 @@
 @extends('layout.main')
 @section('container')
-    <h1 >Halaman Utama</h1>
-    
+<h2>judul</h2>
+<h5>Author</h5>
+<p></p>
 @endsection
