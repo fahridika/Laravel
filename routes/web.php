@@ -14,14 +14,19 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/about', function () {
     return view('about', [
+        'title' => 'about',
         "nama" => "Fahri Dika",
         "email" => "gunaon01@gmail.com",
         "image" => "python.png"
     ]);
 });
 Route::get('/blog', function () {
-    return view('posts');
+    return view('posts', [
+        'title'=> 'blog'
+    ]);
 });
 Route::get('/', function () {
-    return view('home');
+    return view('home',[
+        'title' =>  'home'
+    ]);
 });
