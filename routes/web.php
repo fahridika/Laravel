@@ -13,7 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/about', function () {
-    return view('about');
+    return view('about', [
+        "nama" => "Fahri Dika",
+        "email" => "gunaon01@gmail.com",
+        "image" => "python.png"
+    ]);
 });
 Route::get('/blog', function () {
     return view('posts');

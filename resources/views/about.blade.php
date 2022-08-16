@@ -7,10 +7,10 @@
     <title>Fahri | About</title>
 </head>
 <body>
-    <h1> Halaman home</h1>
+    <h1>  </h1>
     <h3>Muhammad Fahri Dika Yuda</h3>
     <p>gunaon01@gmail.com</p>
-    <img src="" alt="Fahri">
+    <img src="img/python.png" alt="Fahri" width='200'>
 <script src="js/script.js"></script>
 </body>
 </html>
