@@ -25,7 +25,7 @@ Route::get('/blog', function () {
     $blog_posts = [
         [
         'title' =>  'Judul Post Pertama',
-        'slug' => 'judul--post-pertama',
+        'slug' => 'judul-post-pertama',
         'author' => 'Anjas W',
         'body' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
         sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
@@ -56,5 +56,36 @@ Route::get('/', function () {
 });
 
 route::get('/posts/{slug}', function($slug){
-    return view ('posts');
+    $blog_posts = [
+        [
+        'title' =>  'Judul Post Pertama',
+        'slug' => 'judul-post-pertama',
+        'author' => 'Anjas W',
+        'body' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+        Nisl tincidunt eget nullam non. Quis hendrer it dolor magna eget est lorem ipsum dolor sit.'
+        
+        ],
+        [
+            'title' =>  'Judul Post Kedua',
+            'slug' => 'judul-post-kedua',
+            'author' => 'Fany I P',
+            'body' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+            Nisl tincidunt eget nullam non. Quis hendrer it dolor magna eget est lorem ipsum dolor sit.'
+            
+        ]
+    
+        ];
+        $new_post = [];
+        foreach ($blog_posts as $post){
+            if ($post['slug'] === $slug)
+            {
+                $new_post = $post;
+            }
+        }
+    return view ('post', [
+        'title' => 'single post',
+        'post' => $new_post
+    ]);
 });
