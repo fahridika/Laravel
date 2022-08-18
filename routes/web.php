@@ -2,6 +2,7 @@
 
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
 
 
 /*
@@ -23,12 +24,7 @@ Route::get('/about', function () {
         "image" => "python.png"
     ]);
 });
-Route::get('/blog', function () {
-    return view('posts', [
-        'title'=> 'blog',
-        'posts' => Post::all()
-    ]);
-});
+Route::get('/blog',[PostController::class, 'index']);
 
 
 Route::get('/', function () {
@@ -37,9 +33,4 @@ Route::get('/', function () {
     ]);
 });
 
-route::get('/posts/{slug}', function($slug){
-    return view ('post', [
-        'title' => 'single post',
-        'post' => Post::find($slug)
-    ]);
-});
+route::get('/posts/{slug}', [ PostController::class, 'show']);
