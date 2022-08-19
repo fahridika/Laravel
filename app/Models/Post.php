@@ -14,7 +14,14 @@ class Post extends Model
     //     'excerpt',
     //     'body'
     // ];
-    protected $guarded=[
+    protected $guarded=
+    [
         'id'
     ];
+
+    //menghubungkan post dengan category 
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

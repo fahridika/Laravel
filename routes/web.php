@@ -3,7 +3,7 @@
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
-
+use App\Models\Category;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,5 +32,22 @@ Route::get('/', function () {
         'title' =>  'home'
     ]);
 });
-
+// Penerapan Route Model Binding
 route::get('/posts/{post:slug}', [ PostController::class, 'show']);
+
+route::get('/category/{category:slug}', function(Category $category)
+{
+    return view('category',[
+        'title' => $category->name,
+        'posts' => $category->posts,
+        'category' => $category->name
+    ]);
+});
+
+route::get('/category', function()
+{
+    return view('categories',[
+        'title' => 'Post Categories',
+        'categories' => Category::all()
+    ]);
+}); 
