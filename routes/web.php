@@ -53,10 +53,10 @@ route::get('/category', function()
     ]);
 }); 
 
-Route::get('/authors/{user}', function(User $user)
+Route::get('/authors/{author:username}', function(User $author)
 { 
     return view('posts', [
         'title'=> 'User Post',
-        'posts'=> $user->posts,
+        'posts'=> $author->posts,
     ]);
 });
