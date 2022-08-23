@@ -40,7 +40,8 @@ route::get('/category/{category:slug}', function(Category $category)
 {
     return view('posts',[
         'title' => "Post by Category : $category->name" ,
-        'posts' => $category->posts,
+        'active' => 'category',
+        'posts' => $category->posts->load('category','user'),
         // 'category' => $category->name
     ]);
 });
@@ -49,6 +50,7 @@ route::get('/category', function()
 {
     return view('categories',[
         'title' => 'Post Categories',
+        'active' => 'category',
         'categories' => Category::all()
     ]);
 }); 
@@ -57,6 +59,6 @@ Route::get('/authors/{author:username}', function(User $author)
 { 
     return view('posts', [
         'title'=> "Post By Author : $author->name",
-        'posts'=> $author->posts,
+        'posts'=> $author->posts->load('category','user'),
     ]);
 });

@@ -19,6 +19,11 @@ class Post extends Model
         'id'
     ];
 
+    protected $with=
+    [
+        'category', 'user'
+    ];
+
     //menghubungkan post dengan category 
     public function category()
     {

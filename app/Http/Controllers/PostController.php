@@ -10,8 +10,10 @@ class PostController extends Controller
     {
         return view('posts', [
             'title'=> 'All Posts',
+            'active'=> 'posts',
             // 'posts' => Post::all()
-            'posts' => Post::with(['user', 'category'])->latest()->get()
+            'posts' => Post::latest()->get()
+            // eager loading
         ]);
     }
 
@@ -21,6 +23,7 @@ class PostController extends Controller
         //
         return view ('post', [
             'title' => 'single post',
+            'active'=> 'posts',
             'post' => $post
             // 'post' => Post::find($post)
         ]);
